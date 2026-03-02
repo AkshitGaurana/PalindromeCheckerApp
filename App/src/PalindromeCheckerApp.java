@@ -2,12 +2,12 @@ import java.util.*;
 
 public class PalindromeCheckerApp {
     public static boolean isPalindrome(String input) {
-        Deque<Character> deque = new ArrayDeque<>();
-        for (char c : input.toCharArray()) {
-            deque.add(Character.toLowerCase(c));
+        LinkedList<Character> list = new LinkedList<>();
+        for (char c : input.toLowerCase().toCharArray()) {
+            list.add(c);
         }
-        while (deque.size() > 1) {
-            if (!deque.pollFirst().equals(deque.pollLast())) {
+        while (list.size() > 1) {
+            if (!list.removeFirst().equals(list.removeLast())) {
                 return false;
             }
         }
@@ -15,7 +15,7 @@ public class PalindromeCheckerApp {
     }
 
     public static void main(String[] args) {
-        String input = "Madam";
+        String input = "level";
         System.out.println(isPalindrome(input));
     }
 }
