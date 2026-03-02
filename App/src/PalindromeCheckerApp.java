@@ -1,17 +1,20 @@
 public class PalindromeCheckerApp {
     public static boolean isPalindrome(String input) {
-        input = input.toLowerCase();
-        return check(input, 0, input.length() - 1);
-    }
-
-    private static boolean check(String s, int left, int right) {
-        if (left >= right) return true;
-        if (s.charAt(left) != s.charAt(right)) return false;
-        return check(s, left + 1, right - 1);
+        input = input.replaceAll("\\s+", "").toLowerCase();
+        int left = 0;
+        int right = input.length() - 1;
+        while (left < right) {
+            if (input.charAt(left) != input.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
     }
 
     public static void main(String[] args) {
-        String input = "radar";
+        String input = "A man a plan a canal Panama";
         System.out.println(isPalindrome(input));
     }
 }
