@@ -1,6 +1,6 @@
-public class PalindromeCheckerApp {
-    public static boolean isPalindrome(String input) {
-        input = input.replaceAll("\\s+", "").toLowerCase();
+class PalindromeService {
+    public boolean isPalindrome(String input) {
+        input = input.toLowerCase();
         int left = 0;
         int right = input.length() - 1;
         while (left < right) {
@@ -12,9 +12,12 @@ public class PalindromeCheckerApp {
         }
         return true;
     }
+}
 
+public class PalindromeCheckerApp {
     public static void main(String[] args) {
-        String input = "A man a plan a canal Panama";
-        System.out.println(isPalindrome(input));
+        PalindromeService service = new PalindromeService();
+        String input = "noon";
+        System.out.println(service.isPalindrome(input));
     }
 }
