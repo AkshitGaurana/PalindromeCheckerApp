@@ -8,9 +8,17 @@ public class Main {
         System.out.print("Enter a string: ");
         String input = sc.nextLine();
 
-        String reversed = new StringBuilder(input).reverse().toString();
+        char[] characters = input.toCharArray();
+        boolean isPalindrome = true;
 
-        if (input.equals(reversed)) {
+        for (int i = 0; i < characters.length / 2; i++) {
+            if (characters[i] != characters[characters.length - 1 - i]) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        if (isPalindrome) {
             System.out.println("Palindrome");
         } else {
             System.out.println("Not a Palindrome");
