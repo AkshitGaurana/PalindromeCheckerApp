@@ -1,23 +1,27 @@
+import java.util.Scanner;
+
 class PalindromeService {
-    public boolean isPalindrome(String input) {
-        input = input.toLowerCase();
-        int left = 0;
-        int right = input.length() - 1;
-        while (left < right) {
-            if (input.charAt(left) != input.charAt(right)) {
-                return false;
-            }
-            left++;
-            right--;
-        }
-        return true;
+
+    public boolean check(String input) {
+        String reversed = new StringBuilder(input).reverse().toString();
+        return input.equals(reversed);
     }
 }
 
 public class PalindromeCheckerApp {
+
     public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
         PalindromeService service = new PalindromeService();
-        String input = "noon";
-        System.out.println(service.isPalindrome(input));
+
+        System.out.print("Enter a string: ");
+        String input = sc.nextLine();
+
+        boolean result = service.check(input);
+
+        System.out.println(result ? "Palindrome" : "Not a Palindrome");
+
+        sc.close();
     }
 }
